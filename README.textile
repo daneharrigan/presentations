@@ -1,0 +1,4 @@
+h1. Presentations
+
+* Intro to Rake
+  Covers task creation, namespaces, dependencies, invoking, executing, and much more
