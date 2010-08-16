@@ -1,0 +1,21 @@
+# We have 3 tasks here. The :third task
+# invokes :second which has :first set
+# as a dependency.
+#
+# Because we're calling invoke on :second
+# we'll see :first get run as well.
+desc 'Will display "first"'
+task :first do
+  puts '** First **'
+end
+
+desc 'Will display "second"'
+task :second => :first do
+  puts '** Second **'
+end
+
+desc 'Will display "third"'
+task :third do
+  Rake::Task[:second].invoke
+  puts '** Third **'
+end

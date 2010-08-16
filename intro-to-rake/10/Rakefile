@@ -1,0 +1,19 @@
+# We're now calling :second with execute.
+#
+# Because we're calling execute on :second
+# we'll see :first does not get run.
+desc 'Will display "first"'
+task :first do
+  puts '** First **'
+end
+
+desc 'Will display "second"'
+task :second => :first do
+  puts '** Second **'
+end
+
+desc 'Will display "third"'
+task :third do
+  Rake::Task[:second].execute
+  puts '** Third **'
+end

@@ -1,0 +1,16 @@
+# We've made :greeting accept a single
+# argument again and we don't need to
+# output the command name anymore
+desc 'Greets the Ruby Community'
+task :greeting, :name do |command, args|
+  puts "Hello #{args[:name]}!"
+end
+
+# The :greeting task is now set as 
+# a dependency, but no arguments
+# can be passed in
+desc 'Ask how you are doing'
+task :question do
+  Rake::Task[:greeting].invoke('Ruby Community')
+  puts 'How are you?'
+end

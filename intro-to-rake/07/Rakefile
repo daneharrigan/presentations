@@ -1,0 +1,14 @@
+# We're reenabling the :greeting task
+# so we can call it again.
+desc 'Greets the Ruby Community'
+task :greeting, :name do |command, args|
+  puts "Hello #{args[:name]}!"
+  Rake::Task[:greeting].reenable
+end
+
+desc 'Ask how you are doing'
+task :question do
+  Rake::Task[:greeting].invoke('Ruby Community')
+  Rake::Task[:greeting].invoke('Ruby Community')
+  puts 'How are you?'
+end

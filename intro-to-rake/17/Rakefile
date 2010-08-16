@@ -1,0 +1,13 @@
+# This example shows that instance
+# variables can be overwritten
+task :first do
+  @name = 'Ruby Community'
+end
+
+task :second do
+  @name = 'Nooby Community'
+end
+
+task :third => [:first, :second] do
+  puts "*** #{@name} ***"
+end

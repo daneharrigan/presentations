@@ -1,0 +1,18 @@
+# The first method accepts an argument. This can
+# be passed into the method in two ways. It can
+# be passed in through invoke as an element in
+# an array or at the command-line. See command.sh
+# for that example.
+class MyApp < Thor
+  desc :first, 'This is my first task'
+  def first(name)
+    say name
+    say 'First!'
+  end
+
+  desc :second, 'This is my second task'
+  def second
+    invoke :first, ['Ruby Community']
+    say 'second!'
+  end
+end

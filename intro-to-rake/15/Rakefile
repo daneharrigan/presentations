@@ -1,0 +1,15 @@
+# You can have a task and a namespace
+# with the same name at the same level
+namespace :group do
+  desc 'This will displays numbers'
+  task :numbers do
+    puts "*** "+(1..10).to_a.join(' ')+" ***"
+  end
+
+  namespace :numbers do
+    desc 'Will display "first"'
+    task :first do
+      puts '** First **'
+    end
+  end
+end

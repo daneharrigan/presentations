@@ -1,0 +1,17 @@
+# We're keeping the :first task in
+# the :group and :numbers namespace,
+# but we're moving :second outside
+# as a top level task
+namespace :group do
+  namespace :numbers do
+    desc 'Will display "first"'
+    task :first do
+      puts '** First **'
+    end
+  end
+end
+
+desc 'Will display "second"'
+task :second => 'group:numbers:first' do
+  puts '** Second **'
+end

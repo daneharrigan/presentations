@@ -1,0 +1,10 @@
+# Passing arguments into tasks is very easy.
+# The first argument that gets passed into
+# a task block is the command. The second
+# argument is a hash with indexes of each
+# symbol that comes after the task name. 
+desc 'Greets the Ruby Community'
+task :greeting, :name do |command, args|
+  puts "command: #{command}"
+  puts "Hello #{args[:name]}!"
+end

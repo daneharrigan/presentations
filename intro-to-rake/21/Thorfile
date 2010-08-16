@@ -1,0 +1,11 @@
+# Now we're using method_options to define what
+# arguments get passed to our method. These are
+# passed at the command-line
+class MyApp < Thor
+  desc :first, 'This is my first task'
+  method_options :name => :string
+  def first
+    say options[:name]
+    say 'First!'
+  end
+end

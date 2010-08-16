@@ -1,0 +1,17 @@
+# A Thorfile is a ruby class that inheirts from Thor.
+# Where Rake has tasks Thor has methods.
+# Rake doesn't require an initial namespace, but Thor
+# does. The class name is the initial namespace.
+
+class MyApp < Thor
+  desc :first, 'This is my first task'
+  def first
+    say 'First!'
+  end
+
+  desc :second, 'This is my second task'
+  def second
+    invoke :first
+    say 'second!'
+  end
+end

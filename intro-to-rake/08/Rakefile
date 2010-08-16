@@ -1,0 +1,15 @@
+# We're now going to be calling the :greeting
+# task through execute instead of invoke. The
+# execute method accepts a single variable.
+desc 'Greets the Ruby Community'
+task :greeting do |command, args|
+  puts "Hello #{args[:name]}!"
+end
+
+# This shows how to execute a task and pass
+# in a variable
+desc 'Ask how you are doing'
+task :question do
+  Rake::Task[:greeting].execute(:name => 'Ruby Community')
+  puts 'How are you?'
+end

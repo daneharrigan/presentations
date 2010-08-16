@@ -1,0 +1,7 @@
+# This is an example showing how to pass multiple
+# arguments to a rake task
+desc 'Greets the Ruby Community'
+task :greeting, :first, :second do |command, args|
+  puts "command: #{command}"
+  puts "Hello #{args[:first]} #{args[:second]}!"
+end

@@ -1,0 +1,5 @@
+# The desc method describes the task that immediately follows
+desc 'Greets the Ruby Community'
+task :greeting do
+  puts 'Hello Ruby Community!'
+end

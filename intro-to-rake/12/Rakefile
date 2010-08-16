@@ -1,0 +1,17 @@
+# We took :first out of the dependency
+# list and called invoke on it instead
+#
+# This is to show how to invoke tasks
+# contained in a namespace
+namespace :numbers do
+  desc 'Will display "first"'
+  task :first do
+    puts '** First **'
+  end
+
+  desc 'Will display "second"'
+  task :second do
+    Rake::Task['numbers:first'].invoke
+    puts '** Second **'
+  end
+end

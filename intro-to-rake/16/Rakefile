@@ -1,0 +1,17 @@
+# Tasks are like methods in a class.
+# When you set an instance variable
+# in one task, its available to every
+# other task that runs after it.
+#
+# I advise against using instance
+# varibles because they're available
+# to every task. If a dependency sets
+# an instance variable and you overwrite
+# it, you may get unexpected results
+task :first do
+  @name = 'Ruby Community'
+end
+
+task :second => :first do
+  puts "*** #{@name} ***"
+end

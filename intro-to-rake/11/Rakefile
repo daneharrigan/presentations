@@ -1,0 +1,13 @@
+# Lets group our tasks together with
+# namespaces
+namespace :numbers do
+  desc 'Will display "first"'
+  task :first do
+    puts '** First **'
+  end
+
+  desc 'Will display "second"'
+  task :second => :first do
+    puts '** Second **'
+  end
+end

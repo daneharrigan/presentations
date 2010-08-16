@@ -1,0 +1,19 @@
+# This example has you get data from the user
+# You could use STDIN.gets but the highline
+# gem makes things so much easier.
+#
+# You can see I'm asking for the username and
+# password, but the password has a block after
+# it where I "echo = false." It's this false
+# that makes the password not display when
+# being typed in.
+require 'rubygems'
+require 'highline/import'
+
+task :bootstrap do
+  user = ask('What is your username? ')
+  pass = ask('What is your password? ') { |q| q.echo = false }
+
+  puts "Username: #{user}"
+  puts "Password: #{pass}"
+end
